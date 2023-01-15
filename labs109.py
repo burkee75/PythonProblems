@@ -79,7 +79,21 @@ def riffle(items, out=True):
     return riffle_list 
 
 
+# Problem 4: Even the Odds
+def only_odd_digits(n):
+    '''
+    Check that the given positive integer n contains only odd digits (1, 3, 5, 7 and 9) when it is written out. 
+    Return True if this is the case, and False otherwise. 
+    Note that this question is not asking whether the number n itself is odd or even. 
+    You therefore will have to look at every digit of the given number before you can proclaim that the number contains no even digits.
+    '''
 
+    numbers_list = []
+    for i in str(n):
+        numbers_list.append(int(i))
+    
+    return all(i % 2 != 0 for i in numbers_list)
+            
 
 if __name__ == '__main__':
     # personal test cases here
