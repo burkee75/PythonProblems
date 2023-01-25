@@ -93,7 +93,49 @@ def only_odd_digits(n):
         numbers_list.append(int(i))
     
     return all(i % 2 != 0 for i in numbers_list)
-            
+
+# Problem 5: Cyclops Number
+
+def cyclops_number(n):
+  '''A nonnegative integer is said to be a cyclops number if it consists of an odd number of digits so that the middle (more poetically, the “eye”) digit is a zero, and all the other digits of that number are non zero. 
+This function should determine whether its parameter integer n is a cyclops number, and return either True or False accordingly.'''        
+
+  input_num = list(str(n))
+  if n == 0:
+    return True
+  if len(input_num) % 2 == 0:
+    return False
+  half_way = (len(input_num) - 1) // 2
+  print(f"Half_way is {half_way}")
+  print(f"Mid number is {input_num[half_way]}")
+  for i in input_num[:half_way-1]:
+    print(i)
+    if i == str(0):
+      return False
+  for i in input_num[half_way+1:]:
+    print(i)
+    if i == str(0):
+      return False
+  if int(input_num[half_way]) != 0:
+    return False
+    
+  
+  return True
+
+def domino_cycle(tiles: list) -> bool:
+    if not tiles:
+        return True
+    if len(tiles) == 1:
+        if tiles[0][0] != tiles[0][1]:
+            return False
+    i = 0
+    print(tiles)
+    print(len(tiles))
+    while i < len(tiles)-1:
+        if tiles[i][-1] != tiles[i+1][0]:
+            return False
+        i += 1
+    return True
 
 if __name__ == '__main__':
     # personal test cases here
